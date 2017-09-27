@@ -78,10 +78,10 @@ class Message {
 	 * @param array $addresses Example: array('sender@domain.org', 'other@domain.org' => 'A name')
 	 * @return $this
 	 */
-	public function setFrom(array $addresses) {
-		$addresses = $this->convertAddresses($addresses);
+	public function setFrom() {
+		$address = \OC_User::getUser();
 
-		$this->swiftMessage->setFrom($addresses);
+		$this->swiftMessage->setFrom($address);
 		return $this;
 	}
 
